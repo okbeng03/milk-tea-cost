@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  {% block meta %}
+  {% endblock %}
+
+  {% block title %}
+    <title>御茶</title>
+  {% endblock %}
+
+  <link rel="stylesheet" href="/style/css/global.css" />
+
+  {% block css %}
+  {% endblock %}
+</head>
+
+<body>
+  {% block header %}
+    {% include "../module/header.njk" %}
+  {% endblock %}
+
+  <div id="content">
+    <div id="sidenav"></div>
+    {% block content %}
+      <div id="app"></div>
+    {% endblock %}
+  </div>
+
+  {% block footer %}
+    {% include "../module/footer.njk" %}
+  {% endblock %}
+
+  <script src="/style/js/global.js"></script>
+
+  {% block js %}    
+  {% endblock %}
+</body>
+
+</html>

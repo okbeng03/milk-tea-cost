@@ -1,0 +1,19 @@
+<div id="headerbar">
+  <div class="container">
+    <div class="login">
+      {% if ctx.session.userId %}
+        欢迎您，<span class="user">{{ ctx.session.userId }}</span>
+      {% else %}
+        <a href="/member/login.html" title="登录">登录</a>
+        <span class="split">|</span>
+        <a href="/menber/register.html" title="注册">注册</a>
+      {% endif %}
+    </div>
+    <div class="info">
+      <ul>
+        <li>关注微信</li>
+        <li>客服电话: 9507101</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,9 @@
-'use strict';
+exports.mongoose = {
+  enable: true,
+  package: 'egg-mongoose'
+}
 
-// had enabled by egg
-// exports.static = true;
+exports.nunjucks = {
+  enabled: true,
+  package: 'egg-view-nunjucks'
+}

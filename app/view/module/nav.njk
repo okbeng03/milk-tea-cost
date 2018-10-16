@@ -1,0 +1,30 @@
+{% macro navItem(item) %}
+  {% if item.url %}
+    <a href="{{ item.url }}" title="{{ item.title }}" {% if item.icon %}class="icon-{{ item.icon }}"{% endif %}>
+      {{ item.title }}
+    </a>
+  {% else %}
+    <div {% if item.icon %}class="icon-{{ item.icon }}"{% endif %}>
+      {{ item.title }}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{% set nav = ctx.app.cmsData.data.header.nav %}
+
+<ul class="menu-nav">
+  {% for item in nav.list %}
+    <li {% if item.children %}class="has-child"{% endif %}>
+      {{ navItem(item) }}
+      {% if item.children %}
+        <div class="child-nav">
+          <ul>
+            {% for child in item.children %}
+              <li>{{ navItem(child) }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

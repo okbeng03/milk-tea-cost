@@ -4,8 +4,19 @@
   "description": "奶茶店成本系统",
   "private": true,
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "chromedriver": "^2.36.0",
+    "convert-excel-to-json": "^1.4.1",
+    "cross-spawn": "^6.0.5",
+    "csvtojson": "^2.0.8",
     "egg": "^2.2.1",
-    "egg-scripts": "^2.5.0"
+    "egg-mongoose": "^3.1.0",
+    "egg-scripts": "^2.5.0",
+    "egg-view-nunjucks": "^2.2.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "nightwatch": "^0.9.20",
+    "selenium-server": "^3.11.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -15,6 +26,7 @@
     "egg-mock": "^3.14.0",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
@@ -23,7 +35,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-milk-tea-cost",
     "stop": "egg-scripts stop --title=egg-server-milk-tea-cost",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port 7002",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
