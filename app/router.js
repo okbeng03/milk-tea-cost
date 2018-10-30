@@ -9,6 +9,8 @@ module.exports = app => {
   router.get('/api/material/list', controller.material.list)
   router.get('/api/material/leadIn', controller.material.leadIn)
   router.get('/api/material/leadInRecipe', controller.material.leadInRecipe)
+  router.get('/api/inventory/list', controller.inventory.list)
+  router.get('/api/inventory/find', controller.inventory.findLast)
   router.get('/api/inventory/putInByBatch', controller.inventory.putInByBatch)
   router.get('/api/good/leadIn', controller.good.leadIn)
   router.get('/api/good/list', controller.good.list)
@@ -16,4 +18,5 @@ module.exports = app => {
   router.get('/api/order/list', controller.order.list)
   router.get('/api/order/leadIn', controller.order.leadIn)
   router.get('/api/daily/list', controller.daily.list)
+  router.post('/api/inventory/putIn', controller.inventory.putIn)
 }
