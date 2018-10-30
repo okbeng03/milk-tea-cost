@@ -31,7 +31,7 @@ module.exports = app => {
       type: Number,
       default: 0
     },
-    costDetail: Array
+    costDetail: String
   })
  
   return mongoose.model('Good', GoodSchema)
