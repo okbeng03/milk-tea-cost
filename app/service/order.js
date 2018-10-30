@@ -29,7 +29,7 @@ class OrderService extends Service {
     }
 
     // 计算成本
-    const good = await ctx.service.good.findOneByName(name, category, specs, 'name cost recipe')
+    const good = await ctx.service.good.findOneByName({ name, specs }, 'name cost recipe')
 
     if (good) {
       const cost = good.cost * quantity
@@ -57,7 +57,7 @@ class OrderService extends Service {
 
       for (let i = 0, len = recipes.length; i < len; i++) {
         recipe = recipes[i]
-        useResult = await ctx.service.material.use(recipe.name, recipe.quantity)
+        useResult = await ctx.service.material.use(recipe.name, quantity * recipe.quantity)
 
         if (useResult.message) {
           messages.push(useResult.message)
