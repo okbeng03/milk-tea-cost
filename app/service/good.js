@@ -3,10 +3,10 @@ const Service = require('egg').Service
 const recipeParse = require('../util/recipe').parse
 
 class GoodService extends Service {
-  async findOneByName (name, category, specs, fields = '_id') {
+  async findOneByName (conditions, fields = '_id') {
     const { ctx } = this
     const Good = ctx.model.Good
-    const result = await Good.findOne({ name, category, specs }, fields)
+    const result = await Good.findOne(conditions, fields)
 
     return result
   }
@@ -14,7 +14,7 @@ class GoodService extends Service {
   async create (name, category, specs = '', price, unit, recipe) {
     const { ctx } = this
     const Good = ctx.model.Good
-    const result = await ctx.service.good.findOneByName(name, category, specs)
+    const result = await ctx.service.good.findOneByName({name, category, specs})
 
     if (result) {
       return {
@@ -63,7 +63,7 @@ class GoodService extends Service {
       unit,
       cost: amout,
       gain: price - amout,
-      costDetail: detail
+      costDetail: JSON.stringify(detail)
     })
 
     try {
