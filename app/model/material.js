@@ -20,10 +20,14 @@ module.exports = app => {
       type: Number,
       default: 0
     },
+    minQuantity: {
+      type: Number,
+      default: 0
+    },
     // 配方需要
     datum: Number,
     // 配方
-    recipe: String // '翡翠茉莉绿茶: 100g, 热水: 3000g, 冰块: 2000g'
+    recipe: String, // '翡翠茉莉绿茶: 100g, 热水: 3000g, 冰块: 2000g'
     // datum: Number,
     // // 基准数量
     // datumQuantity: Number,
