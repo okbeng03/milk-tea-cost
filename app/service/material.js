@@ -21,7 +21,7 @@ class MaterialService extends Service {
     }
   }
 
-  async create (name, unit) {
+  async create (name, unit, minQuantity) {
     const { ctx } = this
     const Material = ctx.model.Material
     const result = await ctx.service.material.findOneByName(name)
@@ -34,7 +34,8 @@ class MaterialService extends Service {
       type: 'material',
       name: name,
       price: 0,
-      unit: unit
+      unit: unit,
+      minQuantity: minQuantity
     })
     await material.save()
     return material._id
@@ -109,7 +110,7 @@ class MaterialService extends Service {
     const list = []
 
     for (let i = 0, len = materials.length; i < len; i++) {
-      const id = await ctx.service.material.create(materials[i].name, materials[i].datumUnit)
+      const id = await ctx.service.material.create(materials[i].name, materials[i].datumUnit, eval(materials[i].minQuantity))
       list.push({
         id,
         name: materials[i].name
